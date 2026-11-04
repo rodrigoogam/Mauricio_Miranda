@@ -22,6 +22,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="ia.css">
 </head>
 <body>
 
@@ -42,6 +43,7 @@
       <nav class="nav" aria-label="Principal">
         <a href="#impacto"><span data-l="es">Impacto</span><span data-l="en">Impact</span></a>
         <a href="#vision"><span data-l="es">Visión IA</span><span data-l="en">AI vision</span></a>
+        <a href="#calculadora"><span data-l="es">Calculadora IA</span><span data-l="en">AI calculator</span></a>
         <a href="#trayectoria"><span data-l="es">Trayectoria</span><span data-l="en">Career</span></a>
         <a href="#proyectos"><span data-l="es">Proyectos</span><span data-l="en">Projects</span></a>
         <a href="#competencias"><span data-l="es">Competencias</span><span data-l="en">Expertise</span></a>
@@ -207,11 +209,86 @@
       </div>
     </section>
 
+    <!-- ===================== CALCULADORA IA (lógica en ia.js) ===================== -->
+    <section class="section calc" id="calculadora">
+      <div class="wrap">
+        <header class="section__head">
+          <p class="section__index">03</p>
+          <h2 class="section__title"><span data-l="es">Calcula el impacto de la IA en tu empresa</span><span data-l="en">Estimate the impact of AI on your business</span></h2>
+          <p class="section__intro">
+            <span data-l="es">Para pymes: estima cuántas horas podría liberar un asistente de IA en tu equipo de atención a clientes y cuánto vale ese tiempo. Mueve los controles y mira el resultado al instante.</span>
+            <span data-l="en">For SMEs: estimate how many hours an AI assistant could free up in your customer service team, and what that time is worth. Move the controls and see the result instantly.</span>
+          </p>
+        </header>
+
+        <div class="calc__grid">
+          <form class="calc__form" id="calcForm" onsubmit="return false">
+            <div class="calc__field">
+              <div class="calc__row">
+                <label for="cPeople"><span data-l="es">Personas que atienden clientes</span><span data-l="en">People handling customer service</span></label>
+                <output id="oPeople" for="cPeople">5</output>
+              </div>
+              <input type="range" id="cPeople" min="1" max="50" step="1" value="5">
+            </div>
+
+            <div class="calc__field">
+              <div class="calc__row">
+                <label for="cHours"><span data-l="es">Horas a la semana que cada una dedica a atender</span><span data-l="en">Hours per week each one spends on it</span></label>
+                <output id="oHours" for="cHours">30</output>
+              </div>
+              <input type="range" id="cHours" min="5" max="48" step="1" value="30">
+            </div>
+
+            <div class="calc__field">
+              <div class="calc__row">
+                <label for="cCost"><span data-l="es">Costo mensual por persona (sueldo + prestaciones)</span><span data-l="en">Monthly cost per person (salary + benefits)</span></label>
+                <output id="oCost" for="cCost">$18,000</output>
+              </div>
+              <input type="range" id="cCost" min="8000" max="60000" step="500" value="18000">
+            </div>
+
+            <fieldset class="calc__scen">
+              <legend><span data-l="es">Escenario de adopción de IA</span><span data-l="en">AI adoption scenario</span></legend>
+              <label><input type="radio" name="scen" value="0.14"><span><b><span data-l="es">Conservador</span><span data-l="en">Conservative</span></b> 14%</span></label>
+              <label><input type="radio" name="scen" value="0.30" checked><span><b><span data-l="es">Moderado</span><span data-l="en">Moderate</span></b> 30%</span></label>
+              <label><input type="radio" name="scen" value="0.45"><span><b><span data-l="es">Avanzado</span><span data-l="en">Advanced</span></b> 45%</span></label>
+            </fieldset>
+          </form>
+
+          <div class="calc__out" aria-live="polite">
+            <p class="calc__kicker"><span data-l="es">Capacidad que podrías liberar</span><span data-l="en">Capacity you could free up</span></p>
+            <p class="calc__big"><span id="rHours">0</span> <small><span data-l="es">horas al mes</span><span data-l="en">hours per month</span></small></p>
+            <p class="calc__fte"><span data-l="es">Equivale a</span><span data-l="en">Equivalent to</span> <b id="rFte">0</b> <span data-l="es">personas de tiempo completo</span><span data-l="en">full-time people</span></p>
+
+            <div class="calc__bar" aria-hidden="true"><span class="calc__bar-free" id="rBar"></span></div>
+            <div class="calc__legend" aria-hidden="true">
+              <span><span data-l="es">Tiempo actual del equipo</span><span data-l="en">Current team time</span></span>
+              <span class="calc__legend-free"><span data-l="es">Liberado con IA</span><span data-l="en">Freed with AI</span></span>
+            </div>
+
+            <dl class="calc__money">
+              <div><dt><span data-l="es">Valor del tiempo liberado al mes</span><span data-l="en">Value of freed time per month</span></dt><dd id="rMonth">$0</dd></div>
+              <div><dt><span data-l="es">Al año</span><span data-l="en">Per year</span></dt><dd id="rYear">$0</dd></div>
+            </dl>
+
+            <a class="btn btn--primary calc__cta" id="calcCta" href="mailto:mmiranda73@me.com">
+              <span data-l="es">Convertir esta estimación en un plan</span><span data-l="en">Turn this estimate into a plan</span>
+            </a>
+          </div>
+        </div>
+
+        <p class="calc__note">
+          <span data-l="es"><b>Estimación ilustrativa, no una promesa de resultados:</b> el impacto real depende de tus procesos, tus datos y de cómo se implemente la IA. Supuestos: mes de 4.33 semanas y jornada de 40 horas para calcular el costo por hora. El escenario conservador usa el aumento promedio de 14% en productividad de agentes de soporte con un asistente de IA generativa (<a href="https://www.nber.org/papers/w31161" target="_blank" rel="noopener">Brynjolfsson, Li y Raymond, NBER</a>). Los escenarios moderado y avanzado usan el rango de 30% a 45% que McKinsey (2023) estima para atención a clientes.</span>
+          <span data-l="en"><b>Illustrative estimate, not a promise of results:</b> real impact depends on your processes, your data and how AI is implemented. Assumptions: 4.33-week month and 40-hour work week to compute hourly cost. The conservative scenario uses the average 14% productivity gain for support agents using a generative AI assistant (<a href="https://www.nber.org/papers/w31161" target="_blank" rel="noopener">Brynjolfsson, Li and Raymond, NBER</a>). The moderate and advanced scenarios use the 30% to 45% range McKinsey (2023) estimates for customer care.</span>
+        </p>
+      </div>
+    </section>
+
     <!-- ===================== TRAYECTORIA ===================== -->
     <section class="section" id="trayectoria">
       <div class="wrap">
         <header class="section__head">
-          <p class="section__index">03</p>
+          <p class="section__index">04</p>
           <h2 class="section__title"><span data-l="es">Trayectoria</span><span data-l="en">Career</span></h2>
           <p class="section__intro">
             <span data-l="es">De construir el Data Warehouse de indicadores regionales de Telcel a dirigir la organización de Big Data de Totalplay. Cada tramo mide el tiempo real en el cargo.</span>
@@ -333,7 +410,7 @@
     <section class="section section--ice" id="proyectos">
       <div class="wrap">
         <header class="section__head">
-          <p class="section__index">04</p>
+          <p class="section__index">05</p>
           <h2 class="section__title"><span data-l="es">Proyectos destacados</span><span data-l="en">Selected projects</span></h2>
         </header>
         <div class="projects">
@@ -413,7 +490,7 @@
     <section class="section" id="competencias">
       <div class="wrap">
         <header class="section__head">
-          <p class="section__index">05</p>
+          <p class="section__index">06</p>
           <h2 class="section__title"><span data-l="es">Competencias</span><span data-l="en">Expertise</span></h2>
         </header>
         <div class="skills">
@@ -491,8 +568,8 @@
           <span data-l="en">Ready to take your company into the future with data and AI?</span>
         </h2>
         <p class="contact__lede">
-          <span data-l="es">Mauricio está abierto a conversaciones sobre estrategia de datos, agentes de IA y transformación tecnológica.</span>
-          <span data-l="en">Mauricio is open to conversations about data strategy, AI agents and technology transformation.</span>
+          <span data-l="es">Mauricio está abierto a posiciones de liderazgo y a proyectos de consultoría en estrategia de datos, agentes de IA y transformación tecnológica.</span>
+          <span data-l="en">Mauricio is open to leadership roles and consulting projects in data strategy, AI agents and technology transformation.</span>
         </p>
         <div class="contact__actions">
           <a class="btn btn--primary btn--lg" href="mailto:mmiranda73@me.com">mmiranda73@me.com</a>
@@ -515,5 +592,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="ia.js"></script>
 </body>
 </html>

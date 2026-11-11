@@ -1,0 +1,126 @@
+/* =========================================================
+   Sección "Power CEO" (certificación CDTO + prototipos)
+   y ajuste de la sección Visión IA con una sola imagen.
+   Usa las variables de color de styles.css.
+   ========================================================= */
+
+/* Visión IA: una sola imagen, centrada y a buen tamaño */
+.vision__media--single { grid-template-columns: 1fr; max-width: 900px; margin: 0 auto; }
+
+/* ---------- Power CEO ---------- */
+.power {
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(900px 500px at 15% 0%, rgba(47, 91, 255, .28), transparent 65%),
+    radial-gradient(700px 500px at 100% 100%, rgba(143, 168, 255, .10), transparent 60%),
+    var(--graphite-950);
+  border-top: 1px solid var(--line-dark);
+}
+
+/* El título es el elemento memorable de la sección */
+.power__head { margin-bottom: clamp(40px, 6vw, 64px); max-width: 860px; }
+.power__title {
+  margin: 0; font-family: var(--display); font-weight: 700;
+  font-size: clamp(56px, 11vw, 148px); line-height: .9; letter-spacing: -0.055em;
+  background: linear-gradient(100deg, #fff 20%, var(--cobalt-300) 75%, var(--cobalt-500));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.power__lead { margin: 22px 0 0; font: 400 clamp(19px, 2.2vw, 24px) var(--display); color: var(--ice-200); max-width: 40ch; letter-spacing: -0.01em; }
+
+/* Tarjeta de la certificación */
+.power__cert {
+  display: grid; grid-template-columns: 1.6fr 1fr; gap: 0;
+  border: 1px solid rgba(143, 168, 255, .35); border-radius: var(--radius); overflow: hidden;
+  background: rgba(19, 23, 29, .75);
+  box-shadow: 0 0 60px rgba(47, 91, 255, .15);
+}
+.power__cert-main { padding: clamp(26px, 3.5vw, 44px); }
+.power__badge {
+  display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px;
+  padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(143, 168, 255, .4);
+  font: 500 13px var(--mono); color: var(--cobalt-300); background: rgba(47, 91, 255, .12);
+}
+.power__cert h3 { margin: 0; font-size: clamp(24px, 2.8vw, 34px); font-weight: 600; letter-spacing: -0.02em; color: #fff; }
+.power__inst { margin: 8px 0 0; font: 400 14px var(--mono); color: var(--cobalt-300); }
+.power__text { margin: 18px 0 0; color: var(--ice-300); max-width: 62ch; }
+
+.power__facts {
+  margin: 0; display: grid; grid-template-rows: repeat(3, 1fr);
+  border-left: 1px solid var(--line-dark); background: rgba(47, 91, 255, .06);
+}
+.power__facts div { padding: 20px 26px; border-top: 1px solid var(--line-dark); display: flex; flex-direction: column; justify-content: center; }
+.power__facts div:first-child { border-top: 0; }
+.power__facts dt { font: 400 12.5px var(--mono); color: var(--ice-muted); }
+.power__facts dd { margin: 4px 0 0; font: 600 20px var(--display); color: #fff; letter-spacing: -0.01em; }
+
+.power__sub {
+  margin: clamp(56px, 8vw, 88px) 0 24px;
+  font-size: clamp(24px, 2.8vw, 32px); font-weight: 600; letter-spacing: -0.02em; color: #fff;
+}
+.power__intro { margin: -8px 0 24px; color: var(--ice-muted); max-width: 70ch; }
+
+/* Pilares de la certificación */
+.power__pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.pillar-ceo {
+  background: var(--graphite-900); border: 1px solid var(--line-dark); border-radius: var(--radius);
+  padding: 24px 22px; border-top: 2px solid var(--cobalt-500);
+}
+.pillar-ceo__mods { margin: 0 0 10px; font: 400 12px var(--mono); color: var(--cobalt-300); }
+.pillar-ceo h4 { margin: 0 0 14px; font-size: 19px; font-weight: 600; color: #fff; }
+.pillar-ceo ul { margin: 0; padding-left: 18px; }
+.pillar-ceo li { font-size: 14.5px; color: var(--ice-300); margin-bottom: 8px; line-height: 1.5; }
+.pillar-ceo li::marker { color: var(--cobalt-500); }
+
+/* Prototipos (imágenes ampliables) */
+.showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.showcase__item { margin: 0; }
+.showcase__open {
+  display: block; width: 100%; padding: 0; border: 1px solid rgba(143, 168, 255, .3);
+  border-radius: var(--radius); overflow: hidden; cursor: zoom-in; background: var(--graphite-900);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+  transition: border-color .3s ease, box-shadow .3s ease;
+}
+.showcase__open:hover { border-color: var(--cobalt-300); box-shadow: 0 24px 60px rgba(0, 0, 0, .45), 0 0 40px rgba(47, 91, 255, .3); }
+.showcase__open img { width: 100%; height: auto; display: block; aspect-ratio: 3 / 2; object-fit: cover; object-position: top; }  /* misma altura en ambas; el visor muestra la imagen completa */
+.showcase figcaption { margin-top: 16px; display: flex; flex-direction: column; gap: 6px; color: var(--ice-300); font-size: 15px; max-width: 60ch; }
+.showcase figcaption b { font: 600 18px var(--display); color: #fff; }
+.showcase__tag { font: 400 12px var(--mono); color: var(--cobalt-300); }
+
+/* Visor a pantalla completa */
+.lightbox {
+  width: min(96vw, 1600px); max-height: 94vh; padding: 0; border: 1px solid rgba(143, 168, 255, .35);
+  border-radius: 14px; background: var(--graphite-950); overflow: hidden;
+}
+.lightbox::backdrop { background: rgba(5, 7, 10, .85); backdrop-filter: blur(4px); }
+.lightbox img { display: block; width: 100%; height: auto; max-height: 94vh; object-fit: contain; }
+.lightbox__close {
+  position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, .25); background: rgba(14, 17, 22, .75); color: #fff;
+  font-size: 22px; line-height: 1; cursor: pointer;
+}
+.lightbox__close:hover { border-color: var(--cobalt-300); }
+
+/* Menú con un elemento más: compactar en pantallas medianas */
+@media (max-width: 1240px) and (min-width: 901px) {
+  .nav { gap: 16px; }
+  .nav a { font-size: 13.5px; }
+  .brand__name { display: none; }
+}
+
+@media (max-width: 1080px) {
+  .power__pillars { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .power__cert { grid-template-columns: 1fr; }
+  .power__facts { grid-template-rows: none; grid-template-columns: repeat(3, 1fr); border-left: 0; border-top: 1px solid var(--line-dark); }
+  .power__facts div { border-top: 0; border-left: 1px solid var(--line-dark); padding: 16px; }
+  .power__facts div:first-child { border-left: 0; }
+  .showcase { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .power__pillars { grid-template-columns: 1fr; }
+  .power__facts { grid-template-columns: 1fr; }
+  .power__facts div { border-left: 0; border-top: 1px solid var(--line-dark); }
+  .power__facts div:first-child { border-top: 0; }
+  .power__facts dd { font-size: 17px; }
+}

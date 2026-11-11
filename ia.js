@@ -148,11 +148,19 @@
       actions: [{ href: '#calculadora', es: 'Abrir calculadora', en: 'Open calculator' }].concat(CONTACT.slice(0, 1))
     },
     {
+      id: 'cdto',
+      chip: { es: '¿Qué está estudiando ahora?', en: 'What is he studying now?' },
+      keys: ['cdto', 'estudiando', 'cursa', 'curso', 'capacita', 'programa', 'transformacion', 'digital', 'power', 'ceo', 'tec', 'tecnologico', 'monterrey', 'roadmap', 'studying', 'course', 'training', 'transformation'],
+      es: '<p>Actualmente cursa la <b>Certificación Chief Digital Transformation Officer (CDTO)</b> del Tecnológico de Monterrey: 160 horas y 13 módulos.</p><p>El programa cubre estrategia y visión (marcos de McKinsey, Capgemini y Gartner), tecnologías estratégicas como datos, IA generativa, nube, ciberseguridad y RPA, gestión del cambio y diseño centrado en la persona. Cierra con un proyecto integrador: un roadmap de transformación digital.</p>',
+      en: '<p>He is currently completing the <b>Chief Digital Transformation Officer (CDTO) Certification</b> from Tecnológico de Monterrey: 160 hours and 13 modules.</p><p>The program covers strategy and vision (McKinsey, Capgemini and Gartner frameworks), strategic technologies such as data, generative AI, cloud, cybersecurity and RPA, change management and human-centered design. It ends with a capstone project: a digital transformation roadmap.</p>',
+      actions: [{ href: '#power-ceo', es: 'Ver Power CEO', en: 'See Power CEO' }]
+    },
+    {
       id: 'edu',
       chip: { es: '¿Qué estudió?', en: 'What did he study?' },
       keys: ['estudi', 'formacion', 'educacion', 'universidad', 'carrera', 'titulo', 'licenciatura', 'certifica', 'upiicsa', 'education', 'degree', 'university', 'study', 'studied'],
-      es: '<p><b>Licenciatura en Ciencias de la Informática</b> por la UPIICSA (1991–1995).</p><p><b>Certificación en Liderazgo y Relaciones Humanas</b>, Creando Conciencia, con reconocimiento de la SEP (2024).</p>',
-      en: '<p><b>B.Sc. in Computer Science (Ciencias de la Informática)</b> from UPIICSA (1991–1995).</p><p><b>Certification in Leadership and Human Relations</b>, Creando Conciencia, SEP-recognized (2024).</p>'
+      es: '<p><b>Licenciatura en Ciencias de la Informática</b> por la UPIICSA (1991–1995).</p><p><b>Certificación en Liderazgo y Relaciones Humanas</b>, Creando Conciencia, con reconocimiento de la SEP (2024).</p><p>En curso: <b>Certificación Chief Digital Transformation Officer</b>, Tecnológico de Monterrey.</p>',
+      en: '<p><b>B.Sc. in Computer Science (Ciencias de la Informática)</b> from UPIICSA (1991–1995).</p><p><b>Certification in Leadership and Human Relations</b>, Creando Conciencia, SEP-recognized (2024).</p><p>In progress: <b>Chief Digital Transformation Officer Certification</b>, Tecnológico de Monterrey.</p>'
     },
     {
       id: 'lang',
